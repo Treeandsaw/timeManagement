@@ -22,7 +22,10 @@
         <div class="container">
           <div class="navbar-header"> 
             <a class="navbar-brand">
-              <b><font color='black'>Daily Time Management</font></b>  
+              <b><font color='black'>
+              Daily Time Management 
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+              {{AssignedDate.now() | date:'hh:mm:ssa MMM-dd-yyyy'}}</font> </b>  
             </a>  
           </div>
           <div id="navbar" class="collapse navbar-collapse"> 
@@ -48,7 +51,8 @@
             <form class="form-inline">   
               <input type="text" class="form-control" ng-model='title' placeholder="Category" maxlength="25">  
               <input type="text" class="form-control" ng-model='subtitle' placeholder="Schedule" maxlength="225" size='40'>
-              <button type="submit" ng-click='AddToDo()' class="btn btn-primary">Add ToDo</button><br><br>
+              <button type="submit" ng-click='AddToDo()' class="btn btn-primary">Add ToDo</button> 
+              <br><br>
 
               <input type="text" class="form-control" ng-model='time' placeholder="Time" maxlength="100">  
               <input type="text" class="form-control" ng-model='website' placeholder="Website" maxlength="100" size='40'>  

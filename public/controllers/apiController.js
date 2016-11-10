@@ -1,6 +1,14 @@
+myApp.run(function($rootScope,$interval){
+    $rootScope.AssignedDate = Date; // 'Date' could be assigned too of course:)
+    
+    $interval(function(){
+        // nothing is required here, interval triggers digest automatical 
+    },1000)
+})
+
 myApp.controller('MainCtrl', ['$scope', '$firebaseArray', '$firebaseObject', '$http', function($scope, $firebaseArray, $firebaseObject, $http) {
 
-    var ref = new Firebase('https://dddddddd.firebaseio.com/s');
+    var ref = new Firebase('https://dailytimemanager.firebaseio.com/s');
     var todos = $scope.todos = $firebaseArray(ref); 
  
 
