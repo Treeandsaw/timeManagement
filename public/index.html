@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Daily Time Management</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">   
+
+  </head>
+  <body ng-controller="MainCtrl">  
+
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <div class="navbar-header"> 
+            <a class="navbar-brand">
+              <b><font color='black'>Daily Time Management</font></b>  
+            </a>  
+          </div>
+          <div id="navbar" class="collapse navbar-collapse"> 
+            <form class="navbar-form navbar-right">
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="search" placeholder="Search">
+              </div> 
+              <button ng-click='searchBlank()' class="btn btn-info">Search</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav> 
+      <!-- Begin page content --> 
+    
+
+      <div class="container"> 
+
+        <!-- Columns are always 50% wide, on mobile and desktop -->
+        <div class="row">
+
+          <div class="col-xs-12"> <!-- Left Side -->
+
+            <form class="form-inline">   
+              <input type="text" class="form-control" ng-model='title' placeholder="Category" maxlength="25">  
+              <input type="text" class="form-control" ng-model='subtitle' placeholder="Schedule" maxlength="225" size='40'>
+              <button type="submit" ng-click='AddToDo()' class="btn btn-primary">Add ToDo</button><br><br>
+
+              <input type="text" class="form-control" ng-model='time' placeholder="Time" maxlength="100">  
+              <input type="text" class="form-control" ng-model='website' placeholder="Website" maxlength="100" size='40'>  
+            </form> 
+
+          </div>
+
+        </div>   
+
+      </div>  
+
+      <div class="container"> 
+
+        <h3>List {{todos.length}}</h3> 
+
+        <table class="table table-striped"> 
+          <thead>
+            <tr class='info' align="center"> 
+                <td class="col-xs-2"><b>Category</b></td>
+                <td></td>
+                <td class="col-xs-6"><b>Schedule</b></td> 
+                <td class="col-xs-2"><b>Time</b></td>   
+                <td class="col-xs-1"><b>Edit</b></td>   
+                <td class="col-xs-1"><b>Delete</b></td>   
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="todo in todos | orderBy:'-time' | filter : search " align="center"> 
+                <td ng-click='putCategory(todo)'> {{todo.title}}     </td>   
+                <td><button ng-click='gotoWebSite(todo)' class="btn btn-info btn-xs" ng-show='todo.website'> &nbsp; Go &nbsp; </button></td> 
+                <td align="left"> &nbsp; &nbsp; &nbsp;  {{todo.subtitle}}</td>
+                <td>{{todo.time | date:"h:mma MM/dd/yyyy"}}</td>
+                <td><button ng-click='edit(todo)' class="btn btn-warning btn-xs"> &nbsp; Edit &nbsp; </button></td>  
+                <td><button ng-click='remove(todo)' class="btn btn-danger btn-xs"> &nbsp; Delete &nbsp; </button></td>
+            </tr> 
+          </tbody>
+        </table> 
+      </div>
+  
+  </body>    
+
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets\js/firebase.js"></script>
+    <script src="assets/js/angularfire.min.js"></script>
+
+    <script src="assets/js/jquery.js"></script> 
+    <script src="assets/js/angular-route.js"></script>  
+
+    <script src="/app.js"></script> 
+    <script src="/controllers/apiController.js"></script> 
+    <script src="assets\js/oauth-signature.js"></script>  
+
+</html> 
