@@ -1,10 +1,14 @@
-//Require what you need
 var express = require('express');
-//Create object to represent the express application
-var app = express();
- 
-//Specify what folder to use as a static folder
-app.use(express.static(__dirname+'/public'));  
+var path	= require('path');
+var app		= express();
 
-app.listen(3000);
-console.log('Running on port 3000'); 
+app.use(express.static(path.join(__dirname, 'public')));
+app.listen(3000, function(){
+	console.log('3000');
+});
+
+
+
+// https://dailytimemanager.firebaseapp.com/#/
+
+// dailytimemanager.firebaseio.com
