@@ -8,7 +8,4 @@ app.listen(3000, function(){
 });
 
 
-
-// https://dailytimemanager.firebaseapp.com/#/
-
-// dailytimemanager.firebaseio.com
+ 
