@@ -8,9 +8,8 @@ myApp.run(function($rootScope,$interval){
 
 myApp.controller('MainCtrl', ['$scope', '$firebaseArray', '$firebaseObject', '$http', function($scope, $firebaseArray, $firebaseObject, $http) {
 
-    var ref = new Firebase('https://fff.firebaseio.com/review'); // put your firebase address here
-    var todos = $scope.todos = $firebaseArray(ref); 
- 
+    var ref = new Firebase('https://oss-test.firebaseio.com/okky'); // put your firebase address here
+    var todos = $scope.todos = $firebaseArray(ref);  
 
     $scope.AddToDo = function(){   
 
